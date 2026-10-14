@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Irani Canteen, Thane | Chai, bun maska and kheema pav</title>
+<meta name="description" content="Irani Canteen is Thane's first Irani café. Order Irani chai, bun maska, kheema pav and caramel custard from your table by scanning a QR code.">
+<meta name="theme-color" content="#08090a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ============ CUSTOMER SITE ============ -->
+<div id="site">
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Irani Canteen, home">Irani Canteen</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#menu">Menu</a>
+      <a href="#room">The café</a>
+      <a href="#scan">Scan and order</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="chip table-chip" id="tableBadge" hidden title="Change table"></button>
+      <button class="link-btn" id="openTrack">Track order</button>
+      <button class="btn ghost light sm" id="openScan">Scan table</button>
+      <button class="btn primary sm cart-btn" id="openCart" aria-label="Open cart">Cart <span id="cartCount" class="count">0</span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-img">
+        <img src="chai.jpg" alt="Two glasses of Irani chai beside slices of toasted bun on a dark tray">
+      </div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker">Thane's first Irani café</p>
+          <h1><span>Irani</span><span>Canteen</span></h1>
+          <p class="lede">Chai in a glass, bun maska, kheema pav and caramel custard, served the way old Bombay likes them.</p>
+          <div class="cta">
+            <button class="btn primary" data-go="menu">Order now</button>
+            <button class="btn ghost light" id="heroScan">Scan your table QR</button>
+          </div>
+          <ul class="facts">
+            <li>Open every day, 8 AM to 11 PM</li>
+            <li>₹200 to ₹400 per person</li>
+            <li>Rated 4.4 by 4,651 Google reviewers</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div class="chequer" aria-hidden="true"></div>
+
+    <!-- Signature -->
+    <section class="sec sec-marble" id="signature">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>What the counter is known for</h2>
+          <p>Four things guests order again and again. Add one to your cart and keep going.</p>
+        </div>
+        <div class="sig-grid" id="sigGrid"></div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="sec sec-chalk" id="menu">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>The menu</h2>
+          <p>Add items, then place your order for your table or for takeaway. GST is added at checkout.</p>
+        </div>
+        <div class="tabs" id="menuTabs" role="tablist" aria-label="Menu categories"></div>
+        <div class="menu-list" id="menuList"></div>
+      </div>
+    </section>
+
+    <!-- The room -->
+    <section class="room" id="room">
+      <img class="room-bg" src="interior-brick.jpg" alt="">
+      <div class="room-shade"></div>
+      <div class="wrap room-grid">
+        <div class="room-copy">
+          <h2>Sit as long as the chai lasts.</h2>
+          <p>Vintage interiors and classic bentwood seating bring back the feel of a Bombay Irani café. Come in for an unhurried breakfast, an afternoon pause, or a late supper.</p>
+          <ul class="room-points">
+            <li>Dine in at a table, or take your order to go</li>
+            <li>Order from your table with the QR code</li>
+            <li>Outlets at Panch Pakhadi, Hiranandani Estate and Kandivali</li>
+          </ul>
+        </div>
+        <figure class="room-card">
+          <img src="interior-wood.jpg" alt="Café interior with round wooden tables, bentwood chairs and framed vintage signs on the wall">
+          <figcaption>Round wooden tables, warm lamps, vintage signs.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Scan and order -->
+    <section class="sec sec-espresso" id="scan">
+      <div class="wrap scan-grid">
+        <div class="scan-copy">
+          <h2>Order from your table</h2>
+          <p>No waiting for the menu. Scan, choose, and the kitchen gets your order right away.</p>
+          <ol class="steps">
+            <li><b>Scan the QR on your table.</b><span>Your table number is picked up automatically.</span></li>
+            <li><b>Choose what you want.</b><span>Add chai, bun maska, kheema pav or anything else to your cart.</span></li>
+            <li><b>Place the order.</b><span>Pay by UPI or at the counter. Track it live until it reaches you.</span></li>
+          </ol>
+          <button class="btn primary" id="scanBtn2">Open the scanner</button>
+        </div>
+        <div class="qr-card">
+          <div class="qr-box" id="qrDemo" aria-label="Sample table QR code"></div>
+          <p class="qr-cap" id="qrCap">Table 5</p>
+          <div class="qr-pick" id="qrPick" role="group" aria-label="Choose a table to preview"></div>
+          <p class="qr-note">Each table has its own QR code. Print them from the admin portal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="sec sec-marble" id="reviews">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>What guests say</h2>
+          <p>Diners praise the Irani chai, the bun maska, and the mutton and chicken kheema, along with the nostalgic café atmosphere and fair prices.</p>
+        </div>
+        <div class="rating-row" id="ratingRow"></div>
+        <div class="quote-row" id="quoteRow"></div>
+      </div>
+    </section>
+
+    <!-- Visit -->
+    <section class="sec sec-chalk" id="visit">
+      <div class="wrap visit-grid">
+        <div>
+          <h2>Visit us</h2>
+          <address>
+            Shop No. 14/15, Sita Vihar Building,<br>
+            Damani Estate, Teen Hath Naka Flyover,<br>
+            Thane West, Maharashtra 400602
+          </address>
+          <dl class="visit-list">
+            <div><dt>Hours</dt><dd>8 AM to 11 PM, every day</dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:+919967317996">099673 17996</a></dd></div>
+            <div><dt>Seating</dt><dd>Indoor tables, outdoor seating and takeaway</dd></div>
+            <div><dt>Also at</dt><dd>Hiranandani Estate (delivery) and Kandivali</dd></div>
+          </dl>
+          <div class="cta">
+            <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Irani+Canteen+Teen+Hath+Naka+Thane" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn ghost" href="tel:+919967317996">Call the café</a>
+          </div>
+        </div>
+        <div class="visit-art" aria-hidden="true">
+          <img src="bakes.jpg" alt="">
+          <div class="visit-art-shade"></div>
+          <p>Fresh bakes every morning.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="chequer" aria-hidden="true"></div>
+  <footer class="foot">
+    <div class="wrap foot-row">
+      <strong>Irani Canteen</strong>
+      <span>Sample website made for presentation. Menu prices marked as sample may differ from the café.</span>
+      <a href="#/admin" class="staff-link">Staff login</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ ADMIN PORTAL (rendered by admin.js) ============ -->
+<div id="admin" hidden></div>
+
+<!-- ============ OVERLAYS ============ -->
+<div class="scrim" id="scrim" hidden></div>
+
+<aside class="drawer" id="cartDrawer" aria-label="Your order" aria-hidden="true">
+  <div class="drawer-head"><h3>Your order</h3><button class="icon-btn" data-close aria-label="Close cart">Close</button></div>
+  <div class="drawer-body" id="cartBody"></div>
+</aside>
+
+<div class="modal" id="scanModal" role="dialog" aria-modal="true" aria-label="Scan table QR code" aria-hidden="true">
+  <div class="modal-card scan-modal">
+    <div class="modal-head"><h3>Scan your table QR</h3><button class="icon-btn" data-close aria-label="Close scanner">Close</button></div>
+    <div class="viewfinder" id="viewfinder">
+      <video id="scanVideo" playsinline muted></video>
+      <div class="vf-frame"><i></i><i></i><i></i><i></i><span class="vf-line"></span></div>
+    </div>
+    <p class="scan-msg" id="scanMsg">Point your camera at the QR code on your table.</p>
+    <div class="scan-demo">
+      <p><b>Demo mode.</b> No QR in front of you? Tap a table to simulate scanning its code.</p>
+      <div class="chips" id="scanChips"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-label="Order status" aria-hidden="true">
+  <div class="modal-card order-modal">
+    <div class="modal-head"><h3 id="orderTitle">Order</h3><button class="icon-btn" data-close aria-label="Close">Close</button></div>
+    <div id="orderBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="demo-bar" id="demoBar" hidden>
+  <span>Demo preview</span>
+  <button id="dbSite">Customer site</button>
+  <button id="dbAdmin">Admin portal</button>
+</div>
+
+<script src="data.js"></script>
+<script src="qr-data.js"></script>
+<script src="store.js"></script>
+<script src="app.js"></script>
+<script src="admin.js"></script>
+<script>App.boot();</script>
+</body>
+</html>
